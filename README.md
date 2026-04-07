@@ -43,6 +43,12 @@ open Vaulty.xcodeproj
 
 Build and run (`⌘R`). Vaulty appears in the menubar.
 
+### DMG Install
+
+Download the `.dmg` from [Releases](https://github.com/abderrahimghazali/vaulty/releases), open it, and drag Vaulty to Applications.
+
+> **Note:** Since the app is not notarized, macOS will block it on first launch. Right-click (or Control-click) on Vaulty.app and select **Open**, then click **Open** in the dialog to bypass Gatekeeper.
+
 ## Usage
 
 | Action | How |
