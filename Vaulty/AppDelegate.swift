@@ -19,9 +19,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "lock.shield", accessibilityDescription: "Vaulty")
-            button.image?.size = NSSize(width: 18, height: 18)
-            button.image?.isTemplate = true
+            let trayImage = NSImage(named: "AppIcon")
+            trayImage?.size = NSSize(width: 18, height: 18)
+            button.image = trayImage
             button.action = #selector(handleClick)
             button.target = self
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])

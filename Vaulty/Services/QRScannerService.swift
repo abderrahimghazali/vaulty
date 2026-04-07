@@ -41,9 +41,7 @@ enum QRScannerService {
             }
         }
 
-        // Found QR codes but none were otpauth
-        let payloads = results.compactMap { $0.payloadStringValue }
-        throw QRError.foundButNotOTP(payloads)
+        throw QRError.foundButNotOTP
     }
 
     static func parseOTPAuthURI(_ uri: String) throws -> QRResult {
@@ -100,15 +98,15 @@ enum QRError: LocalizedError {
     case noQRFound
     case invalidURI
     case missingSecret
-    case foundButNotOTP([String])
+    case foundButNotOTP
 
     var errorDescription: String? {
         switch self {
         case .captureFailed: return "Failed to capture screen"
-        case .noQRFound: return "No QR code found. Screenshot saved to Desktop for debugging."
+        case .noQRFound: return "No QR code found on screen"
         case .invalidURI: return "Not a valid TOTP QR code"
         case .missingSecret: return "QR code is missing the secret key"
-        case .foundButNotOTP(let payloads): return "Found QR but not TOTP: \(payloads.first ?? "?")"
+        case .foundButNotOTP: return "QR code found but it's not a TOTP code"
         }
     }
 }
