@@ -1,10 +1,19 @@
-# Vaulty
+<p align="center">
+  <img src="icon.png" width="128" height="128" alt="Vaulty icon">
+</p>
 
-![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
-![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue.svg)
-![License MIT](https://img.shields.io/badge/License-MIT-green.svg)
+<h1 align="center">Vaulty</h1>
 
-A native macOS menubar app that generates TOTP codes for any 2FA-enabled service. Replace reaching for your phone — all your authenticator codes live in the menubar, one click away.
+<p align="center">
+  <img src="https://img.shields.io/badge/Swift-5.0-orange.svg" alt="Swift 5.0">
+  <img src="https://img.shields.io/badge/macOS-14%2B-blue.svg" alt="macOS 14+">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License MIT">
+</p>
+
+<p align="center">
+  A native macOS menubar app that generates TOTP codes for any 2FA-enabled service.<br>
+  Replace reaching for your phone — all your authenticator codes live in the menubar, one click away.
+</p>
 
 ## Features
 
