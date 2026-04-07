@@ -27,13 +27,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
-        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            if event.modifierFlags.contains([.command, .shift]) && event.keyCode == 9 {
-                DispatchQueue.main.async {
-                    self?.togglePopover()
-                }
-            }
-        }
     }
 
     @objc private func handleClick() {

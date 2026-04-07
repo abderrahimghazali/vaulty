@@ -147,20 +147,43 @@ struct ContentView: View {
     // MARK: - Footer
 
     private var footer: some View {
-        HStack(spacing: 4) {
-            if !viewModel.accounts.isEmpty {
-                Text("\(viewModel.accounts.count)")
+        HStack {
+            HStack(spacing: 4) {
+                if !viewModel.accounts.isEmpty {
+                    Text("\(viewModel.accounts.count)")
+                        .foregroundStyle(.secondary)
+                    Text("account\(viewModel.accounts.count == 1 ? "" : "s") · Keychain secured")
+                } else {
+                    Circle()
+                        .fill(.green.opacity(0.7))
+                        .frame(width: 5, height: 5)
+                    Text("Secured by macOS Keychain")
+                }
+            }
+            Spacer()
+            Button {
+                if let url = URL(string: "https://github.com/abderrahimghazali/vaulty") {
+                    AppDelegate.shared.closePopover()
+                    NSWorkspace.shared.open(url)
+                }
+            } label: {
+                Image("GitHubMark")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 14, height: 14)
                     .foregroundStyle(.secondary)
-                Text("account\(viewModel.accounts.count == 1 ? "" : "s") · Keychain secured")
-            } else {
-                Circle()
-                    .fill(.green.opacity(0.7))
-                    .frame(width: 5, height: 5)
-                Text("Secured by macOS Keychain")
+                    .frame(width: 22, height: 22)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .help("View on GitHub")
+            .onHover { inside in
+                if inside { NSCursor.pointingHand.push() } else { NSCursor.pop() }
             }
         }
         .font(.system(size: 10))
         .foregroundStyle(.tertiary)
+        .padding(.horizontal, 16)
         .padding(.vertical, 8)
     }
 }

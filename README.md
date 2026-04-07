@@ -24,7 +24,6 @@
 - **QR code scanning** — Capture any `otpauth://` QR code visible on screen.
 - **Keychain storage** — Secrets stored exclusively in macOS Keychain. Never written to disk in plain text.
 - **Search** — Filter accounts by name or issuer.
-- **Global shortcut** — `⌘⇧V` to toggle Vaulty from anywhere.
 
 ## Installation
 
@@ -48,7 +47,7 @@ Build and run (`⌘R`). Vaulty appears in the menubar.
 
 | Action | How |
 |--------|-----|
-| Open/close | Click the menubar icon or press `⌘⇧V` |
+| Open/close | Click the menubar icon |
 | Copy code | Click an account row |
 | Add account | Click `+` → enter manually or scan QR |
 | Scan QR | Click "Scan QR from screen" (QR must be visible, popover hides first) |
