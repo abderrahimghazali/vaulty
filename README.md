@@ -24,6 +24,7 @@
 - **QR code scanning** — Capture any `otpauth://` QR code visible on screen.
 - **Keychain storage** — Secrets stored exclusively in macOS Keychain. Never written to disk in plain text.
 - **Search** — Filter accounts by name or issuer.
+- **Launch at Login** — Option to start Vaulty automatically on macOS login.
 
 ## Installation
 
@@ -58,6 +59,7 @@ Download the `.dmg` from [Releases](https://github.com/abderrahimghazali/vaulty/
 | Add account | Click `+` → enter manually or scan QR |
 | Scan QR | Click "Scan QR from screen" (QR must be visible, popover hides first) |
 | Delete account | Right-click an account → Delete |
+| Launch at Login | Right-click tray icon → Launch at Login |
 | Search | Type in the search bar (appears with 3+ accounts) |
 
 ## Permissions
