@@ -39,10 +39,12 @@ struct ContentView: View {
 
     private var header: some View {
         HStack {
-            HStack(spacing: 6) {
-                Image(systemName: "shield.checkered")
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(.orange)
+            HStack(spacing: 7) {
+                Image("VaultyIcon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
                 Text("Vaulty")
                     .font(.system(size: 13, weight: .semibold))
             }

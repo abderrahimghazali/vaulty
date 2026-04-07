@@ -19,10 +19,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "shield.checkered", accessibilityDescription: "Vaulty")
-            button.image?.size = NSSize(width: 16, height: 16)
-            button.action = #selector(togglePopover)
+            button.image = NSImage(systemSymbolName: "lock.shield", accessibilityDescription: "Vaulty")
+            button.image?.size = NSSize(width: 18, height: 18)
+            button.image?.isTemplate = true
+            button.action = #selector(handleClick)
             button.target = self
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
@@ -32,6 +34,42 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+    }
+
+    @objc private func handleClick() {
+        guard let event = NSApp.currentEvent else { return }
+        if event.type == .rightMouseUp {
+            showMenu()
+        } else {
+            togglePopover()
+        }
+    }
+
+    private func showMenu() {
+        let menu = NSMenu()
+
+        let openItem = NSMenuItem(title: "Show", action: #selector(openFromMenu), keyEquivalent: "")
+        openItem.target = self
+        menu.addItem(openItem)
+
+        menu.addItem(NSMenuItem.separator())
+
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(quitApp), keyEquivalent: "q")
+        quitItem.target = self
+        menu.addItem(quitItem)
+
+        statusItem.menu = menu
+        statusItem.button?.performClick(nil)
+        // Reset menu so left-click still works as popover toggle
+        statusItem.menu = nil
+    }
+
+    @objc private func openFromMenu() {
+        openPopover()
+    }
+
+    @objc private func quitApp() {
+        NSApp.terminate(nil)
     }
 
     @objc private func togglePopover() {
@@ -44,7 +82,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func closePopover() {
         popover.performClose(nil)
-        // Also force-hide the window in case performClose animates
         popover.contentViewController?.view.window?.orderOut(nil)
     }
 

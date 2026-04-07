@@ -84,4 +84,10 @@ MIT
 
 ## Author
 
+<p>
+  <a href="https://github.com/abderrahimghazali/vaulty">
+    <img src="https://img.shields.io/badge/GitHub-abderrahimghazali%2Fvaulty-181717?logo=github" alt="GitHub">
+  </a>
+</p>
+
 [@abderrahimghazali](https://github.com/abderrahimghazali)
